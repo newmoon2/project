@@ -32,7 +32,7 @@ RESPONSE_MODE = [   # Configure the response mode of the query engine
 ]
 DEFAULT_RESPONSE_MODE = "simple_summarize"
 
-OLLAMA_API_URL = "http://localhost:11434"
+OLLAMA_API_URL = "http://172.17.0.4:11434"
 
 # Models' API configuration，set the KEY in environment variables
 ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY", "")
@@ -86,10 +86,10 @@ ZH_TITLE_ENHANCE = False # Chinese title enhance
 # Storage configuration
 
 MONGO_URI = "mongodb://localhost:27017"
-REDIS_URI = "redis://localhost:6379"
-REDIS_HOST = "localhost"
+REDIS_URI = "redis://172.17.0.5:6379"
+REDIS_HOST = "172.17.0.5"
 REDIS_PORT = 6379
-ES_URI = "http://localhost:9200"
+ES_URI = "http://172.17.0.3:9200"
 
 # Default vector database type, including "es" and "chroma"
 DEFAULT_VS_TYPE = "es"
@@ -122,8 +122,8 @@ RERANKER_MODEL_TOP_N = 2
 RERANKER_MAX_LENGTH = 1024
 
 # Evironment variable, default to be "development", set to "production" for production environment
-THINKRAG_ENV = os.getenv("THINKRAG_ENV", "development")
-DEV_MODE = THINKRAG_ENV == "development"
+THINKRAG_ENV = os.getenv("THINKRAG_ENV", "production")
+DEV_MODE = THINKRAG_ENV == "production"
 
 # For creating IndexManager
 DEFAULT_INDEX_NAME = "knowledge_base"
