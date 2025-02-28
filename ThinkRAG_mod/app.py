@@ -12,14 +12,14 @@ from frontend.state import init_state
 if __name__ == '__main__':
 
     st.set_page_config(
-        page_title="ThinkRAG - LLM RAG system runs on laptop",
+        page_title="3softplus - LLM",
         page_icon="🧊",
         layout="wide",
         initial_sidebar_state="auto",
         menu_items=None,
     )
 
-    st.logo("frontend/images/ThinkRAG_Logo.png")
+    st.logo("frontend/images/logo.png")
 
     init_state()
 
