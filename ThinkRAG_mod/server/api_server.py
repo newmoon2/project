@@ -53,11 +53,11 @@ def init() :
 if __name__ == '__main__':
     init_state()
     init()
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='192.168.1.111', port=5000)
 else    :
     init_state()
     init()
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='192.168.1.111', port=5000)
 
 # 별도로 Flask 서버를 실행하는 함수
 #def start_flask_thread():
