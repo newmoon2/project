@@ -32,7 +32,8 @@ RESPONSE_MODE = [   # Configure the response mode of the query engine
 ]
 DEFAULT_RESPONSE_MODE = "simple_summarize"
 
-OLLAMA_API_URL = "http://192.168.1.100:11434"
+# OLLAMA_API_URL = "http://192.168.1.100:11434"
+OLLAMA_API_URL = "http://192.168.0.40:11434/"
 
 # Models' API configuration，set the KEY in environment variables
 ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY", "")

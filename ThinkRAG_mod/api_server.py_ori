@@ -14,13 +14,20 @@ app = Flask(__name__)
 @app.route('/api', methods=['GET', 'POST'])
 def api():
     try:
+        print('api function..init')
         data = request.get_json()
-        prompt = data.get('content', 'nltk란?')  # 기본 질문 설정
+
+        print('prompt : '+prompt)
+        
+        prompt = data.get('content', 'RAG가 뭐야?')  # 기본 질문 설정
+
+        print('prompt : '+prompt)
 
         if 'query_engine' not in st.session_state:
             return jsonify({"error": "Query engine not initialized"}), 500
 
         query_response = st.session_state.query_engine.query(prompt)
+        print('response : '+query_response)
         return jsonify({"response": query_response})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -29,7 +36,6 @@ def api():
 def init():
     try:
         current_llm_settings = CONFIG_STORE.get(key="current_llm_settings")
-
         st.session_state.index_manager = IndexManager(config.DEFAULT_INDEX_NAME)
 
         if st.session_state.index_manager.check_index_exists():
@@ -51,4 +57,4 @@ if __name__ == '__main__':
     init_state()
     init()
     print('server 실행 ->')
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
